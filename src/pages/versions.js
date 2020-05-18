@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from '../styles.module.css';
+import styles from './styles.module.css';
 
 
 function Tag(props) {
@@ -103,11 +103,11 @@ function Version({title, description}) {
 
 function WhichVersion() {
   const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`Versions`}
+      description="What is the difference between the versions?">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">Versions</h1>
