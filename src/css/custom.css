@@ -56,3 +56,21 @@
 .footer .footer__links {
   margin-bottom: 3rem;
 }
+
+
+.features_src-pages- h3 {
+  text-align: center;
+}
+
+.features_src-pages- p {
+  text-align: justify;
+  text-align-last: center;
+}
+
+.get-started-button {
+  color: white !important;
+}
+
+.get-started-button:hover {
+  color: #2f7acf !important;
+}

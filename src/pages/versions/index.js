@@ -78,8 +78,8 @@ const versions = [
 
                 <br/><br/>
 
-                We use <Tag>FastAPI</Tag> as our <Good>asynchronous backend framework</Good>. In combination with&nbsp;
-                <Tag>motor</Tag> (an asynchronous wrapper for <Tag>pymongo</Tag>) the server side code is way more
+                We use <Tag>FastAPI</Tag> as our <Good>asynchronous backend framework</Good>. In combination
+                with <Tag>motor</Tag> (an asynchronous wrapper for <Tag>pymongo</Tag>) the server side code is way more
                 efficient than our last setup.
 
                 <br/><br/>
