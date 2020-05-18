@@ -22,8 +22,9 @@ module.exports = {
         },
         {
           href: 'https://github.com/mse-survey-tool',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
@@ -42,30 +43,57 @@ module.exports = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Built with',
           items: [
             {
-              label: '...',
+              html: `
+                <a href="https://reactjs.org/" target="_blank" rel="noreferrer noopener" aria-label="ReactJS">
+                  <img style="max-height: 1.8rem" src="/img/branding/React_White_768.png" alt="ReactJS""/>
+                </a>
+              `,
+            },
+            {
+              html: `
+                <a href="https://material-ui.com/" target="_blank" rel="noreferrer noopener" aria-label="Material-UI">
+                  <img style="max-height: 1.8rem" src="/img/branding/Material-UI_White_768.png" alt="Material-UI"/>
+                </a>
+              `,
+            },
+            {
+              html: `
+                <a href="https://v2.docusaurus.io/" target="_blank" rel="noreferrer noopener" aria-label="Docusaurus">
+                  <img style="max-height: 1.8rem" src="/img/branding/Docusaurus_White_768.png" alt="Docusaurus" />
+                </a>
+              `,
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Powered by',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/mse-survey-tool',
+              html: `
+                <a href="https://cloud.google.com/" target="_blank" rel="noreferrer noopener" aria-label="Powered by the Google Platform">
+                  <img style="max-width: 14rem" src="/img/branding/GCP_White_768.png" alt="Powered by the Google Platform" />
+                </a>
+              `,
             },
             {
-              label: 'Development Progress',
-              href: 'https://github.com/mse-survey-tool',
+              html: `
+                <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer noopener" aria-label="MongoDB">
+                  <img style="max-width: 8rem" src="/img/branding/MongoDB_768.png" alt="MongoDB" />
+                </a>
+              `,
             },
             {
-              label: 'Survey Frontend',
-              href: 'https://mse-survey-frontend.ey.r.appspot.com/'
-            }
+              html: `
+                <a href="https://sendgrid.com/" target="_blank" rel="noreferrer noopener" aria-label="SendGrid">
+                  <img style="max-width: 8rem" src="/img/branding/Sendgrid_White_734.png" alt="SendGrid" />
+                </a>
+              `,
+            },
           ],
-        },
+        }
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Felix Böhm, Moritz Makowski`,
     },
