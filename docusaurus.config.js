@@ -35,7 +35,7 @@ module.exports = {
           title: 'Versions',
           items: [
             {
-              label: 'Main Differences?',
+              label: 'Differences?',
               href: '/versions',
               target: '_self'
             },
@@ -52,21 +52,28 @@ module.exports = {
             {
               html: `
                 <a href="https://reactjs.org/" target="_blank" rel="noreferrer noopener" aria-label="ReactJS">
-                  <img style="max-height: 1.8rem" src="/img/branding/React_White_768.png" alt="ReactJS""/>
+                  <img style="max-height: 1.6rem" src="/img/branding/React_White_768.png" alt="ReactJS""/>
+                </a>
+              `,
+            },
+            {
+              html: `
+                <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noreferrer noopener" aria-label="FastAPI">
+                  <img style="max-height: 1.6rem" src="/img/branding/FastAPI_White_768.png" alt="FastAPI""/>
                 </a>
               `,
             },
             {
               html: `
                 <a href="https://material-ui.com/" target="_blank" rel="noreferrer noopener" aria-label="Material-UI">
-                  <img style="max-height: 1.8rem" src="/img/branding/Material-UI_White_768.png" alt="Material-UI"/>
+                  <img style="max-height: 1.6rem" src="/img/branding/Material-UI_White_768.png" alt="Material-UI"/>
                 </a>
               `,
             },
             {
               html: `
                 <a href="https://v2.docusaurus.io/" target="_blank" rel="noreferrer noopener" aria-label="Docusaurus">
-                  <img style="max-height: 1.8rem" src="/img/branding/Docusaurus_White_768.png" alt="Docusaurus" />
+                  <img style="max-height: 1.6rem" src="/img/branding/Docusaurus_White_768.png" alt="Docusaurus" />
                 </a>
               `,
             },
@@ -92,7 +99,14 @@ module.exports = {
             {
               html: `
                 <a href="https://sendgrid.com/" target="_blank" rel="noreferrer noopener" aria-label="SendGrid">
-                  <img style="max-width: 8rem" src="/img/branding/Sendgrid_White_734.png" alt="SendGrid" />
+                  <img style="max-width: 7rem" src="/img/branding/Sendgrid_White_734.png" alt="SendGrid" />
+                </a>
+              `,
+            },
+            {
+              html: `
+                <a href="https://www.netlify.com/" target="_blank" rel="noreferrer noopener" aria-label="Netlify">
+                  <img style="max-width: 6rem" src="/img/branding/Netlify_White_768.png" alt="Netlify" />
                 </a>
               `,
             },
