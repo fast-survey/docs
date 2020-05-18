@@ -2,10 +2,10 @@ module.exports = {
   title: 'MSE Survey Tool',
   tagline: 'fully customizable surveys built with modern tools',
   url: 'https://mse-survey-tool.github.io',
-  baseUrl: '/',
+  baseUrl: '/docs/',
   favicon: 'img/favicon_512.ico',
   organizationName: 'mse-survey-tool', // Usually your GitHub org/user name.
-  projectName: 'project-docs', // Usually your repo name.
+  projectName: 'docs', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'MSE Survey Tool',
