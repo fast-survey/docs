@@ -32,13 +32,17 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Versions',
           items: [
             {
-              label: '...',
+              label: 'Main Differences?',
+              href: '/versions',
+              target: '_self'
             },
             {
-              label: '...',
+              label: 'Version 2.0',
+              href: '/docs/doc2',
+              target: '_self'
             },
           ],
         },
