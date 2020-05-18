@@ -7,91 +7,99 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 const features = [
-  {
-    title: <>Beautiful Surveys</>,
-    imageUrl: 'img/undraw_customer_survey_f9ur.svg',
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: <>Open Source and fully customizable</>,
-    imageUrl: 'img/undraw_open_source_1qxw.svg',
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: <>Build with modern tools</>,
-    imageUrl: 'img/undraw_react_reduced_y7wq.svg',
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
+    {
+        title: <>Beautiful Surveys</>,
+        imageUrl: 'img/undraw_customer_survey_f9ur.svg',
+        description: (
+            <>
+                Minimalistic design based on Google Material Design. Fast interface
+                with full client-side form validation built-in.
+            </>
+        ),
+    },
+    {
+        title: <>Transparent, Secure and Open Source</>,
+        imageUrl: 'img/undraw_open_source_1qxw.svg',
+        description: (
+            <>
+                Full transparency regarding data privacy. All functionality without any
+                cookies or local storage. Rich documentation and an MIT licence for full
+                reusability as well as instructions for self-hosting.
+
+                <br/><br/>
+
+                All services can be modified and fully replaced independently of each other
+                since the whole communication takes place with REST and all API's are well
+                documented.
+            </>
+        ),
+    },
+    {
+        title: <>Build with Modern Tools</>,
+        imageUrl: 'img/undraw_hacker_mindset_gjwq.svg',
+        description: (
+            <>
+                A fully responsive single page application built with React. Asynchronous,
+                efficient backend code with automatic API-reference documentation based on
+                the OpenAPI standard. Fully cloud hosted on GCP.
+            </>
+        ),
+    },
 ];
 
 function Feature({imageUrl, title, description}) {
-  const imgUrl = useBaseUrl(imageUrl);
-  return (
-    <div className={classnames('col col--4', styles.feature)}>
-      {imgUrl && (
-        <div className="text--center">
-          <img className={styles.featureImage} src={imgUrl} alt={title} />
+    const imgUrl = useBaseUrl(imageUrl);
+    return (
+        <div className={classnames('col col--4', styles.feature)}>
+            {imgUrl && (
+                <div className="text--center">
+                    <img className={styles.featureImage} src={imgUrl} alt={title}/>
+                </div>
+            )}
+            <h3>{title}</h3>
+            <p>{description}</p>
         </div>
-      )}
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
-  );
+    );
 }
 
 function Home() {
-  const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
-  return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <header className={classnames('hero hero--primary', styles.heroBanner)}>
-        <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={classnames(
-                'button button--outline button--secondary button--lg get-started-button',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/doc1')}>
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </header>
-      <main>
-        {features && features.length && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-      </main>
-    </Layout>
-  );
+    const context = useDocusaurusContext();
+    const {siteConfig = {}} = context;
+    return (
+        <Layout
+            title={`Hello from ${siteConfig.title}`}
+            description="Description will go into a meta tag in <head />">
+            <header className={classnames('hero hero--primary', styles.heroBanner)}>
+                <div className="container">
+                    <h1 className="hero__title">{siteConfig.title}</h1>
+                    <p className="hero__subtitle">{siteConfig.tagline}</p>
+                    <div className={styles.buttons}>
+                        <Link
+                            className={classnames(
+                                'button button--outline button--secondary button--lg get-started-button',
+                                styles.getStarted,
+                            )}
+                            to={useBaseUrl('docs/doc1')}>
+                            Get Started
+                        </Link>
+                    </div>
+                </div>
+            </header>
+            <main>
+                {features && features.length && (
+                    <section className={styles.features}>
+                        <div className="container">
+                            <div className="row">
+                                {features.map((props, idx) => (
+                                    <Feature key={idx} {...props} />
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
+            </main>
+        </Layout>
+    );
 }
 
 export default Home;
