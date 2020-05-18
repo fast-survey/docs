@@ -7,6 +7,11 @@ module.exports = {
   organizationName: 'mse-survey-tool', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
+    disableDarkMode: true,
+    prism: {
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
+    },
     navbar: {
       title: 'MSE Survey Tool',
       logo: {
