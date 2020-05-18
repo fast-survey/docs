@@ -1,8 +1,8 @@
 module.exports = {
   title: 'MSE Survey Tool',
   tagline: 'fully customizable surveys built with modern tools',
-  url: 'https://mse-survey-tool.github.io',
-  baseUrl: '/docs/',
+  url: 'https://mse-survey-tool-docs.netlify.app',
+  baseUrl: '/',
   favicon: 'img/favicon_512.ico',
   organizationName: 'mse-survey-tool', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
