@@ -1,0 +1,83 @@
+---
+id: versions
+title: Differences Between Versions?
+sidebar_label: Versions
+---
+
+export function Tag(props) {
+    return (
+        <pre style={{display: "inline", padding: "1px 4px 2.5px 4px", backgroundColor: "rgb(230,230,230)", borderRadius: "3px"}}>
+            {props.children}
+        </pre>
+    );
+}
+
+export function Bad(props) {
+    return (
+        <span style={{fontWeight: 600, color: "rgb(220,40,40)"}}>
+            {props.children}
+        </span>
+    );
+}
+
+export function Good(props) {
+    return (
+        <span style={{fontWeight: 600, color: "rgb(38,186,38)"}}>
+            {props.children}
+        </span>
+    );
+}
+
+## Version 0
+
+This version has only been used for the very first
+survey built by us. It did not include support for
+multiple surveys and <Bad>was only designed to run
+with the survey it was made for</Bad>.
+
+This was just a basic proof of concept that a custom
+survey tool could result in a superior experience.
+
+
+## Version 1
+
+The basic layout of version 2 (routing, API-Design,
+etc.) was designed to handle multiple different
+surveys with all the features of the previous
+version.
+
+<strong>However:</strong> <Bad>Creating new surveys
+was based on copying parts of the code</Bad> of an
+existing survey and modifying that code. Very flexible
+but definitely not feasible for a survey tool with
+the purpose of adding new surveys fast and easily.
+
+In addition to that, the server side code (<Tag>Python 3</Tag>)
+was still using <Tag>flask</Tag> and <Tag>pymongo</Tag>
+which are <Bad>not asynchronous and therefore blocking
+during database requests and other time consuming
+operations</Bad>.
+
+That's why this setup was not suited for an efficient
+survey tool!
+
+
+## Version 2+
+
+From this version on <Good>new surveys can be defined
+by using a <Tag>json</Tag> config file</Good>. No more
+copy-pasting survey-code!
+
+We already defined these config files for the past
+surveys as examples. Of course we provide rich documentation
+on how to write these config files as well as a full
+API reference.
+
+We use <Tag>FastAPI</Tag> as our <Good>asynchronous
+backend framework</Good>. In combination with <Tag>motor</Tag>
+(an asynchronous wrapper for <Tag>pymongo</Tag>) the
+server side code is way more efficient than our last setup.
+
+What performance increase are we talking about? We'll
+probably write a blog post about our findings soon :)
+

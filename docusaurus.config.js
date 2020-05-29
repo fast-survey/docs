@@ -20,7 +20,7 @@ module.exports = {
       },
       links: [
         {
-          to: 'docs/doc1',
+          to: 'docs/general/getting-started',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
@@ -41,12 +41,12 @@ module.exports = {
           items: [
             {
               label: 'Differences?',
-              href: '/versions',
+              href: '/docs/general/versions',
               target: '_self'
             },
             {
               label: 'Version 2.0',
-              href: '/docs/doc2',
+              href: '/docs/general/getting-started',
               target: '_self'
             },
           ],
