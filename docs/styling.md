@@ -1,5 +1,5 @@
 ---
-id: style
+id: styling
 title: Docusaurus Reference
 ---
 
