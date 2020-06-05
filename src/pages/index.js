@@ -67,7 +67,9 @@ function Home() {
     const {siteConfig = {}} = context;
     return (
         <Layout
-            description="Fully customizable surveys built with modern tools.">
+            description="Fully customizable surveys built with modern tools."
+            image={"/img/rocket_bg.png"}
+        >
             <header className={classnames('hero hero--primary', styles.heroBanner, styles.heroBannerLight)}>
                 <div className="container">
                     <h1 className="hero__title">{siteConfig.title}</h1>

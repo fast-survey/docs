@@ -1,6 +1,8 @@
 ---
 id: styling
 title: Docusaurus Reference
+description: Official FastSurvey Documentation
+image: /img/rocket_bg.png
 ---
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
