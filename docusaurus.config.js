@@ -1,10 +1,10 @@
 module.exports = {
-  title: 'MSE Survey Tool',
+  title: 'FastSurvey',
   tagline: 'fully customizable surveys built with modern tools',
-  url: 'https://mse-survey-tool-docs.netlify.app',
+  url: 'https://fast-survey-docs.netlify.app',
   baseUrl: '/',
   favicon: 'img/favicon_512.ico',
-  organizationName: 'mse-survey-tool', // Usually your GitHub org/user name.
+  organizationName: 'fast-survey', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
     disableDarkMode: true,
@@ -13,10 +13,10 @@ module.exports = {
       darkTheme: require('prism-react-renderer/themes/dracula'),
     },
     navbar: {
-      title: 'MSE Survey Tool',
+      title: 'FastSurvey',
       logo: {
-        alt: 'MSE Logo',
-        src: 'img/MSELogoOld.svg',
+        alt: 'FastSurvey Logo',
+        src: 'img/rocket_navbar_icon.svg',
       },
       links: [
         {
@@ -26,7 +26,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://github.com/mse-survey-tool',
+          href: 'https://github.com/fast-survey',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
@@ -129,7 +129,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/mse-survey-tool/docs/edit/master/',
+            'https://github.com/fast-survey/docs/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

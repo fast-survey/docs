@@ -34,3 +34,26 @@
   height: 200px;
   width: 200px;
 }
+
+.heroBannerLight {
+  background-color: #f2f2f2 !important;
+}
+
+.heroBannerLight h1 {
+  color: #303846 !important;
+}
+
+.heroBannerLight p {
+  color: #303846 !important;
+}
+
+.getStartedButton {
+  color: white !important;
+  border-color: transparent;
+  background-color: #f60948;
+}
+
+.getStartedButton:hover {
+  color: white !important;
+  background-color: #d1083d;
+}

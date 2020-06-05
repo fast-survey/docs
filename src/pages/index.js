@@ -68,15 +68,16 @@ function Home() {
     return (
         <Layout
             description="Fully customizable surveys built with modern tools.">
-            <header className={classnames('hero hero--primary', styles.heroBanner)}>
+            <header className={classnames('hero hero--primary', styles.heroBanner, styles.heroBannerLight)}>
                 <div className="container">
                     <h1 className="hero__title">{siteConfig.title}</h1>
                     <p className="hero__subtitle">{siteConfig.tagline}</p>
                     <div className={styles.buttons}>
                         <Link
                             className={classnames(
-                                'button button--outline button--secondary button--lg get-started-button',
+                                'button button--outline button--secondary button--lg',
                                 styles.getStarted,
+                                styles.getStartedButton,
                             )}
                             to={useBaseUrl('docs/general/getting-started')}>
                             Get Started
