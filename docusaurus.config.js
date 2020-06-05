@@ -1,7 +1,7 @@
 module.exports = {
   title: 'FastSurvey',
   tagline: 'fully customizable surveys built with modern tools',
-  url: 'https://fast-survey-docs.netlify.app',
+  url: 'https://docs.fastsurvey.io/',
   baseUrl: '/',
   favicon: 'img/favicon_512.ico',
   organizationName: 'fast-survey', // Usually your GitHub org/user name.
