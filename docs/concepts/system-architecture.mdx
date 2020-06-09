@@ -6,5 +6,98 @@ description: Official FastSurvey Documentation
 image: /img/rocket_bg.png
 ---
 
-pass 2
+export function Flexbox (props) {
+    return (
+        <div style={{width: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
+            {props.children}
+        </div>
+    );
+}
 
+## System Overview
+
+We use the **Google Cloud Platform** for most of our infrastructure, **MongoDB Atlas**
+for data storage, and **SendGrid** for sending emails.
+
+<Flexbox>
+    <img src="/img/docs/concepts/system-architecture-01.png"
+    style={{width: "min(100%, 650px)"}}/>
+</Flexbox>
+
+<br/>
+
+You can use every FastSurvey feature by interacting with the backend directly. You will
+find a full API reference on here soon. The frontend uses those same endpoints specified
+in the API reference.
+
+:::note
+In our soon to be released self-hosting guide we will provide you with instructions to
+use your own infrastructure instead of ours. However we will not be able to provide support
+to self-hosting users and all feature releases will require your own setting up.
+:::
+
+## Survey Identifier
+
+Each survey can uniquely be identified with with the survey-identifier which is made up
+of the username of the owner account and the survey-name: `survey-identifier` =
+`username/survey-name`
+
+You can name the survey how you like but we will generate a url-conform identifier.
+
+<Flexbox>
+    <img src="/img/docs/concepts/system-architecture-02.gif"
+    style={{width: "min(100%, 650px)"}}/>
+</Flexbox>
+
+## Survey Storage
+
+We store each survey in as a `json` file in the MongoDB. There no way to fetch all
+surveys from outside of our system. You can only fetch the `json`-specification of
+one particular survey at once:
+
+```https
+GET https://backend.fastsurvey.io/<username>/<survey-name>/config
+```
+
+The same `json` config is used by both backend and frontend. The frontend will
+access the config file via this route.
+
+:::note
+You can find the full guide on how to these config files are specified in the
+section [Configuring with `json`]()
+:::
+
+## Submission Storage
+
+In our database there are two type of collections: `pending-records` and
+`verified-records`.
+
+When a participant submits his form, this data (including the email address) along
+with a random `verification-token` will be saved as a `pending-submission`.
+
+```https
+POST https://backend.fastsurvey.io/<username>/<survey-name>/submit
+```
+
+Our system immediately sends out an email which contains the form data (form
+validation purposes) as well as a link to verify that submission:
+
+```https
+GET https://backend.fastsurvey.io/<username>/<survey-name>/verify/<verification-token>
+```
+
+Once the user pressed that link the backend will copy the respective submission
+from `pending-records` over to `verified-records` and removes all old
+`verified-submission` with that user for that survey in the process.
+
+Once that has been done the backend redirects the user to a frontend-page with
+either a "success"-message or a "submission time has ended"-message.
+
+:::note
+Old `pending-submissions` will still be stored until a certain time after the
+survey has ended so that when a participant submits a form multiple times and
+clicks multiple distinct verification-links, the data verified at last will be
+stored permanently.
+
+We use a delay to deleted those records in case the owner re-opens the survey.
+:::
