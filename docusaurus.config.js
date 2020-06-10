@@ -22,7 +22,7 @@ module.exports = {
         {
           to: 'docs/general/getting-started',
           activeBasePath: 'docs',
-          label: 'Docs',
+          label: 'Documentation',
           position: 'left',
         },
         {
