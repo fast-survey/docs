@@ -1,19 +1,37 @@
 ---
 id: getting-started
-title: Getting Started
+title: " "
+sidebar_label: Getting Started
 description: Official FastSurvey Documentation
 image: /img/rocket_bg.png
 ---
 
+export function Flexbox (props) {
+    return (
+        <div style={{width: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
+            {props.children}
+        </div>
+    );
+}
+
+<Flexbox>
+    <img src="/img/docs/label-logo-01.svg"
+    style={{width: "min(100%, 400px)"}}/>
+</Flexbox>
+
+<br/>
+
 FastSurvey is a modern, fast and secure tool to conduct your surveys.
 
-Our core values are:
+<div>Our core values are:</div>
 
 - **Modern**: Sleek, minimalist interfaces, so that you can be on your way quickly
 - **Fast**: Our surveys run on an asynchronous backend that's built to scale
 - **Intuitive**: Not only for the user, but also for the survey creator
 - **Secure**: Our code is open sourced and backed by the community
-  
+
+## Getting Started
+
 We are **still in early development** - that is why the tool cannot be used by everyone yet!
 
 <br/>

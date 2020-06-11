@@ -20,7 +20,7 @@ We use the **Google Cloud Platform** for most of our infrastructure, **MongoDB A
 for data storage, and **SendGrid** for sending emails.
 
 <Flexbox>
-    <img src="/img/docs/concepts/system-architecture-01.png"
+    <img src="/img/docs/system-architecture-01.png"
     style={{width: "min(100%, 650px)"}}/>
 </Flexbox>
 
@@ -44,7 +44,7 @@ of the username of the owner account and the survey-name: `survey-identifier` =
 You can name the survey how you like but we will generate a url-conform identifier.
 
 <Flexbox>
-    <img src="/img/docs/concepts/system-architecture-02.gif"
+    <img src="/img/docs/system-architecture-02.gif"
     style={{width: "min(100%, 650px)"}}/>
 </Flexbox>
 
@@ -55,7 +55,7 @@ surveys from outside of our system. You can only fetch the `json`-specification 
 one particular survey at once:
 
 ```https
-GET https://backend.fastsurvey.io/<username>/<survey-name>/config
+GET https://backend.fastsurvey.io/<username>/<survey-name>
 ```
 
 The same `json` config is used by both backend and frontend. The frontend will
