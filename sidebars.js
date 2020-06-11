@@ -1,13 +1,10 @@
 module.exports = {
   someSidebar: {
-    "General Information": ["general/getting-started", "general/versions", "general/development"],
-    "Concepts": ["concepts/email-verification", "concepts/system-architecture"],
-    "JSON Configuration": ["json-configuration/intro"],
-    "Admin Dashboard": ["admin-dashboard/intro"],
-    "Form Input Types": ["form-input-types/intro"],
-    "Self Hosting": ["self-hosting/intro"],
+    "General Information": ["general/getting-started", "general/about-us"],
+    "User Guide": ["user-guide/email-verification"],
+    "Admin Guide": ["admin-guide/admin-dashboard", "admin-guide/json-configuration-files"],
+    "Field Types": ["field-types/selection", "field-types/radio"],
+    "Self Hosting": ["self-hosting/introduction", "self-hosting/system-architecture"],
   },
 };
-
-
 
