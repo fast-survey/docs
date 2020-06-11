@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 const features = [
     {
         title: <>Beautiful Surveys</>,
-        imageUrl: 'img/undraw_customer_survey_f9ur.svg',
+        imageUrl: 'img/drawings/undraw_customer_survey_f9ur.svg',
         description: (
             <>
                 Minimalistic design based on Google Material Design. Fast interface
@@ -19,7 +19,7 @@ const features = [
     },
     {
         title: <>Transparent, Secure and Open Source</>,
-        imageUrl: 'img/undraw_open_source_1qxw.svg',
+        imageUrl: 'img/drawings/undraw_open_source_1qxw.svg',
         description: (
             <>
                 Full transparency regarding data privacy. All functionality without any
@@ -36,7 +36,7 @@ const features = [
     },
     {
         title: <>Build with Modern Tools</>,
-        imageUrl: 'img/undraw_hacker_mindset_gjwq.svg',
+        imageUrl: 'img/drawings/undraw_hacker_mindset_gjwq.svg',
         description: (
             <>
                 A fully responsive single page application built with React. Asynchronous,
@@ -68,7 +68,7 @@ function Home() {
     return (
         <Layout
             description="Fully customizable surveys built with modern tools."
-            image={"/img/rocket_bg.png"}
+            image={"/img/icons/rocket_bg.png"}
         >
             <header className={classnames('hero hero--primary', styles.heroBanner, styles.heroBannerLight)}>
                 <div className="container">

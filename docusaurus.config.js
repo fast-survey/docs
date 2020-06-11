@@ -3,7 +3,7 @@ module.exports = {
   tagline: 'fully customizable surveys built with modern tools',
   url: 'https://docs.fastsurvey.io/',
   baseUrl: '/',
-  favicon: 'img/favicon_512.ico',
+  favicon: 'img/icons/favicon_512.ico',
   organizationName: 'fast-survey', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
@@ -16,7 +16,7 @@ module.exports = {
       title: 'FastSurvey',
       logo: {
         alt: 'FastSurvey Logo',
-        src: 'img/rocket_navbar_icon.svg',
+        src: 'img/icons/rocket_navbar_icon.svg',
       },
       links: [
         {
@@ -57,28 +57,28 @@ module.exports = {
             {
               html: `
                 <a href="https://reactjs.org/" target="_blank" rel="noreferrer noopener" aria-label="ReactJS">
-                  <img style="max-height: 1.6rem" src="/img/branding/React_White_768.png" alt="ReactJS""/>
+                  <img style="max-height: 1.6rem" src="/img/brands/React_White_768.png" alt="ReactJS""/>
                 </a>
               `,
             },
             {
               html: `
                 <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noreferrer noopener" aria-label="FastAPI">
-                  <img style="max-height: 1.6rem" src="/img/branding/FastAPI_White_768.png" alt="FastAPI""/>
+                  <img style="max-height: 1.6rem" src="/img/brands/FastAPI_White_768.png" alt="FastAPI""/>
                 </a>
               `,
             },
             {
               html: `
                 <a href="https://material-ui.com/" target="_blank" rel="noreferrer noopener" aria-label="Material-UI">
-                  <img style="max-height: 1.6rem" src="/img/branding/Material-UI_White_768.png" alt="Material-UI"/>
+                  <img style="max-height: 1.6rem" src="/img/brands/Material-UI_White_768.png" alt="Material-UI"/>
                 </a>
               `,
             },
             {
               html: `
                 <a href="https://v2.docusaurus.io/" target="_blank" rel="noreferrer noopener" aria-label="Docusaurus">
-                  <img style="max-height: 1.6rem" src="/img/branding/Docusaurus_White_768.png" alt="Docusaurus" />
+                  <img style="max-height: 1.6rem" src="/img/brands/Docusaurus_White_768.png" alt="Docusaurus" />
                 </a>
               `,
             },
@@ -90,28 +90,28 @@ module.exports = {
             {
               html: `
                 <a href="https://cloud.google.com/" target="_blank" rel="noreferrer noopener" aria-label="Powered by the Google Platform">
-                  <img style="max-width: 14rem" src="/img/branding/GCP_White_768.png" alt="Powered by the Google Platform" />
+                  <img style="max-width: 14rem" src="/img/brands/GCP_White_768.png" alt="Powered by the Google Platform" />
                 </a>
               `,
             },
             {
               html: `
                 <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer noopener" aria-label="MongoDB">
-                  <img style="max-width: 8rem" src="/img/branding/MongoDB_768.png" alt="MongoDB" />
+                  <img style="max-width: 8rem" src="/img/brands/MongoDB_768.png" alt="MongoDB" />
                 </a>
               `,
             },
             {
               html: `
                 <a href="https://sendgrid.com/" target="_blank" rel="noreferrer noopener" aria-label="SendGrid">
-                  <img style="max-width: 7rem" src="/img/branding/Sendgrid_White_734.png" alt="SendGrid" />
+                  <img style="max-width: 7rem" src="/img/brands/Sendgrid_White_734.png" alt="SendGrid" />
                 </a>
               `,
             },
             {
               html: `
                 <a href="https://www.netlify.com/" target="_blank" rel="noreferrer noopener" aria-label="Netlify">
-                  <img style="max-width: 6rem" src="/img/branding/Netlify_White_768.png" alt="Netlify" />
+                  <img style="max-width: 6rem" src="/img/brands/Netlify_White_768.png" alt="Netlify" />
                 </a>
               `,
             },
