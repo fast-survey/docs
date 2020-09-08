@@ -1,0 +1,27 @@
+---
+id: text
+title: Text
+description: Official FastSurvey Documentation
+image: /img/rocket_bg.png
+---
+
+With the Text field you can obtain free text input.
+
+## Properties
+
+- `min_chars`: the minimum number of characters to be written (inclusive); has to be > 0
+- `max_chars`: the maximum number of characters to be written (inclusive): has to be > 0 and >= min_chars
+
+## Example JSON Specification:
+
+```json
+{
+    "type": "Text",
+    "title": "Why do you like ice cream?",
+    "description": "",
+    "properties": {
+        "min_chars": 10,
+        "max_chars": 1000
+    }
+}
+```
