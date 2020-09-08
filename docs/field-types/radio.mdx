@@ -5,7 +5,42 @@ description: Official FastSurvey Documentation
 image: /img/rocket_bg.png
 ---
 
-*Soon: A detailed documentation of every form input type available, each
-with an explanation of the data being stored, how the `json`-config works
-and examples.*
+The Radio field provides choice between multiple Options. For the input to be valid, exactly one Option needs to be selected.
 
+## Properties
+
+- `fields`: list of Option fields
+
+## Example JSON Specification:
+
+```json
+{
+    "type": "Radio",
+    "title": "What is your favorite fruit?",
+    "description": "",
+    "properties": {
+        "fields": [
+            {
+                "type": "Option",
+                "title": "Asparagus",
+                "description": ""
+            },
+            {
+                "type": "Option",
+                "title": "Spinach",
+                "description": ""
+            },
+            {
+                "type": "Option",
+                "title": "Artichoke",
+                "description": ""
+            },
+            {
+                "type": "Option",
+                "title": "None of these is a fruit",
+                "description": ""
+            }
+        ]
+    }
+}
+```

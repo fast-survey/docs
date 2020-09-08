@@ -5,7 +5,41 @@ description: Official FastSurvey Documentation
 image: /img/rocket_bg.png
 ---
 
-*Soon: A detailed documentation of every form input type available, each
-with an explanation of the data being stored, how the `json`-config works
-and examples.*
+The Selection field provides choice between multiple Options. You can specify the required number of Options to be selected.
 
+## Properties
+
+- `min_select`: the minimum number of Options to be selected (inclusive)
+- `max_select`: the maximum number of Options to be selected (inclusive)
+- `fields`: list of Option fields
+
+## Example JSON Specification:
+
+```json
+{
+    "type": "Selection",
+    "title": "What's are your favorite ice cream flavors?",
+    "description": "",
+    "properties": {
+        "min_select": 0,
+        "max_select": 2,
+        "fields": [
+            {
+                "type": "Option",
+                "title": "Strawberry",
+                "description": ""
+            },
+            {
+                "type": "Option",
+                "title": "Vanilla",
+                "description": ""
+            },
+            {
+                "type": "Option",
+                "title": "Chocolate",
+                "description": ""
+            }
+        ]
+    }
+}
+```
