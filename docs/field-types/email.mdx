@@ -1,15 +1,16 @@
 ---
-id: radio
-title: Radio
+id: email
+title: Email
 description: Official FastSurvey Documentation
 image: /img/rocket_bg.png
 ---
 
-The Radio field provides choice between multiple Options. For the input to be valid, exactly one Option needs to be selected.
+With the Email field you can obtain the email address of the user. We will verify the submitted address via a confirmation email. You have the possibility to specify a regex to constrain valid email addresses, e.g. `.*@protonmail.com` to accept only ProtonMail addresses.
 
 ## Properties
 
-- `fields`: list of Option fields
+- `regex`: the regex by which valid email addresses are constrained
+- `hint`: a textual hint e.g. how a valid email address could look like
 
 ## Example JSON Specification:
 
@@ -27,8 +28,8 @@ The Radio field provides choice between multiple Options. For the input to be va
             "type": "Email",
             "title": "What is your email address?",
             "description": "",
-            "hint": "Your email address ...",
-            "regex": ".*"
+            "regex": ".*",
+            "hint": "Your email address ..."
         }
     ]
 }
