@@ -5,4 +5,41 @@ description: Official FastSurvey Documentation
 image: /img/rocket_bg.png
 ---
 
-*Soon: How to the **`json`-config files** are written/being interpreted*
+We designed our system in such a way that everything related to a survey both in the front- and the backend is generated from a single configuration in JSON format, which we simply call survey configuration.
+
+Here you can see a very simple survey that asks your survey participants to describe why they like ice cream, should be simple right?
+
+```json
+{
+    "admin_name": "fastsurvey",
+    "survey_name": "text",
+    "title": "Text Test",
+    "description": "",
+    "start": 1000000000,
+    "end": 2000000000,
+    "mode": 0,
+    "fields": [
+        {
+            "type": "Text",
+            "title": "Why do you like ice cream?",
+            "description": "",
+            "min_chars": 10,
+            "max_chars": 1000
+        }
+    ]
+}
+```
+
+Each survey configuration has the same top level properties:
+
+- `admin_name`: the username of the person that created the survey
+- `survey_name`: the name of the survey
+- `title`: the (more detailed and readable) title of the survey
+- `description`: here you can put a short description or introduction of the survey
+- `start`: the time the survey is opened as unix timestamp (inclusive)
+- `end`: the time the survey is closed as unix timestamp (exclusive)
+- `mode`: a number representing one of the three types of surveys you can build
+    - `0`: a free for all survey, everyone who has the link can submit (even multiple times)
+    - `1`: a survey where the user submits her email address during the survey and we verify that the email is valid via a confirmation email (only the users most recent submission counts)
+    - `2`: a survey where you provide us with a list of email addresses, we send out personalized invitations, and ensure that only the persons that you specified can submit (only the users most recent submission counts)
+- `fields`: a list of the questions that the survey entails, see Field Types
