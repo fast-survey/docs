@@ -17,29 +17,41 @@ The Selection field provides choice between multiple Options. You can specify th
 
 ```json
 {
-    "type": "Selection",
-    "title": "What's are your favorite ice cream flavors?",
+    "admin_name": "fastsurvey",
+    "survey_name": "selection",
+    "title": "Selection Test",
     "description": "",
-    "properties": {
-        "min_select": 0,
-        "max_select": 2,
-        "fields": [
-            {
-                "type": "Option",
-                "title": "Strawberry",
-                "description": ""
-            },
-            {
-                "type": "Option",
-                "title": "Vanilla",
-                "description": ""
-            },
-            {
-                "type": "Option",
-                "title": "Chocolate",
-                "description": ""
-            }
-        ]
-    }
+    "start": 1000000000,
+    "end": 2000000000,
+    "mode": 0,
+    "fields": [
+        {
+            "type": "Selection",
+            "title": "What are your favorite ice cream flavors?",
+            "description": "",
+            "min_select": 0,
+            "max_select": 2,
+            "fields": [
+                {
+                    "type": "Option",
+                    "title": "Strawberry",
+                    "description": "",
+                    "mandatory": false
+                },
+                {
+                    "type": "Option",
+                    "title": "Vanilla",
+                    "description": "",
+                    "mandatory": false
+                },
+                {
+                    "type": "Option",
+                    "title": "Chocolate",
+                    "description": "",
+                    "mandatory": false
+                }
+            ]
+        }
+    ]
 }
 ```

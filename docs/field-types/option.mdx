@@ -9,15 +9,26 @@ The Option field provides a simple yes/no choice. It can be used on its own or a
 
 ## Properties
 
-- `required`: true if the field is required to be selected, false otherwise
+- `mandatory`: true if the field is mandatory to be selected, false otherwise
 
 ## Example JSON Specification:
 
 ```json
 {
-    "type": "Option",
-    "required": true,
-    "title": "I have read and agree to the terms and conditions",
-    "description": ""
+    "admin_name": "fastsurvey",
+    "survey_name": "option",
+    "title": "Option Test",
+    "description": "",
+    "start": 1000000000,
+    "end": 2000000000,
+    "mode": 0,
+    "fields": [
+        {
+            "type": "Option",
+            "title": "I have read and agree to the terms and conditions",
+            "description": "",
+            "mandatory": true
+        }
+    ]
 }
 ```

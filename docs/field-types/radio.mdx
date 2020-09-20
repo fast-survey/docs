@@ -15,32 +15,45 @@ The Radio field provides choice between multiple Options. For the input to be va
 
 ```json
 {
-    "type": "Radio",
-    "title": "What is your favorite fruit?",
+    "admin_name": "fastsurvey",
+    "survey_name": "radio",
+    "title": "Radio Test",
     "description": "",
-    "properties": {
-        "fields": [
-            {
-                "type": "Option",
-                "title": "Asparagus",
-                "description": ""
-            },
-            {
-                "type": "Option",
-                "title": "Spinach",
-                "description": ""
-            },
-            {
-                "type": "Option",
-                "title": "Artichoke",
-                "description": ""
-            },
-            {
-                "type": "Option",
-                "title": "None of these is a fruit",
-                "description": ""
-            }
-        ]
-    }
+    "start": 1000000000,
+    "end": 2000000000,
+    "mode": 0,
+    "fields": [
+        {
+            "type": "Radio",
+            "title": "What is your favorite fruit?",
+            "description": "",
+            "fields": [
+                {
+                    "type": "Option",
+                    "title": "Asparagus",
+                    "description": "",
+                    "mandatory": false
+                },
+                {
+                    "type": "Option",
+                    "title": "Spinach",
+                    "description": "",
+                    "mandatory": false
+                },
+                {
+                    "type": "Option",
+                    "title": "Artichoke",
+                    "description": "",
+                    "mandatory": false
+                },
+                {
+                    "type": "Option",
+                    "title": "None of these is a fruit",
+                    "description": "",
+                    "mandatory": false
+                }
+            ]
+        }
+    ]
 }
 ```

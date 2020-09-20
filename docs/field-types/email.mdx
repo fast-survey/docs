@@ -1,0 +1,35 @@
+---
+id: radio
+title: Radio
+description: Official FastSurvey Documentation
+image: /img/rocket_bg.png
+---
+
+The Radio field provides choice between multiple Options. For the input to be valid, exactly one Option needs to be selected.
+
+## Properties
+
+- `fields`: list of Option fields
+
+## Example JSON Specification:
+
+```json
+{
+    "admin_name": "fastsurvey",
+    "survey_name": "email",
+    "title": "Email Test",
+    "description": "",
+    "start": 1000000000,
+    "end": 2000000000,
+    "mode": 1,
+    "fields": [
+        {
+            "type": "Email",
+            "title": "What is your email address?",
+            "description": "",
+            "hint": "Your email address ...",
+            "regex": ".*"
+        }
+    ]
+}
+```
