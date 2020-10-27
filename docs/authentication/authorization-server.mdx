@@ -14,6 +14,8 @@ You can get the full API reference - when running the server - from:
 
 ```bash
 GET "/docs"
+# or
+GET "/redoc"
 ```
 
 :::
@@ -30,9 +32,12 @@ GET "/"
 {
     "status": "healthy",
     "mode": "production",
-    "public_key": "ssh-rsa ..."
+    "public_key": "...",
+    "jwt_algorithm": "..."
 }
 ```
+
+We use the asymmetric **`RS256`** algorithm.
 
 <br />
 

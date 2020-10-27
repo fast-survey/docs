@@ -172,38 +172,38 @@ external communication required.
 
 ```
   +--------+                                           +---------------+
-  |        |--(C)--------- Login Credentials --------->| Authorization |
-  |        |                                           |     Server    |
-  |        |<-(D)----------- Access Token -------------|               |
+  |        |--(C)--------- Login Credentials --------->| Authentication |
+  |        |                                           |     Server     |
+  |        |<-(D)----------- Access Token -------------|                |
   |        |                                           +---------------+
   | Client |
   |        |                                           +---------------+
-  |        |--(E)----------- Access Token ------------>|    Resource   |
-  |        |                                           |     Server    |
-  |        |<-(F)--------- Protected Resource ---------|               |
+  |        |--(E)----------- Access Token ------------>|    Resource    |
+  |        |                                           |     Server     |
+  |        |<-(F)--------- Protected Resource ---------|                |
   +--------+                                           +---------------+
 ```
 
 ```
   +--------+                                           +---------------+
-  |        |--(A)-------- Login Credentials ---------->|               |
-  |        |                                           |               |
-  |        |<-(B)----------- Access Token -------------|               |
-  |        |               & Refresh Token             |               |
-  |        |                                           |               |
-  |        |                            +----------+   |               |
-  |        |--(C)---- Access Token ---->|          |   |               |
-  |        |                            |          |   |               |
-  |        |<-(D)- Protected Resource --| Resource |   | Authorization |
-  | Client |                            |  Server  |   |     Server    |
-  |        |--(E)---- Access Token ---->|          |   |               |
-  |        |                            |          |   |               |
-  |        |<-(F)- Invalid Token Error -|          |   |               |
-  |        |                            +----------+   |               |
-  |        |                                           |               |
-  |        |--(G)----------- Refresh Token ----------->|               |
-  |        |                                           |               |
-  |        |<-(H)----------- Access Token -------------|               |
+  |        |--(A)-------- Login Credentials ---------->|                |
+  |        |                                           |                |
+  |        |<-(B)----------- Access Token -------------|                |
+  |        |               & Refresh Token             |                |
+  |        |                                           |                |
+  |        |                            +----------+   |                |
+  |        |--(C)---- Access Token ---->|          |   |                |
+  |        |                            |          |   |                |
+  |        |<-(D)- Protected Resource --| Resource |   | Authentication |
+  | Client |                            |  Server  |   |     Server     |
+  |        |--(E)---- Access Token ---->|          |   |                |
+  |        |                            |          |   |                |
+  |        |<-(F)- Invalid Token Error -|          |   |                |
+  |        |                            +----------+   |                |
+  |        |                                           |                |
+  |        |--(G)----------- Refresh Token ----------->|                |
+  |        |                                           |                |
+  |        |<-(H)----------- Access Token -------------|                |
   +--------+           & Optional Refresh Token        +---------------+
 ```
 
@@ -258,8 +258,8 @@ Our implementation and this documentation both are a simplified version of
 the OAuth2 proposal!
 
 Some examples: OAuth2 distinguishes between the resource owner and the
-authorization. In addition to that OAuth2 establishes scopes which are
-different permission-levels (e.g. read-only vs. read-and-write).
+authorization server. In addition to that OAuth2 establishes scopes which
+are different permission-levels (e.g. read-only vs. read-and-write).
 
 You can find the **official OAuth2 proposal (RFC6749)** here:
 https://oauth.net/2/, https://tools.ietf.org/html/rfc6749
@@ -279,4 +279,18 @@ payload.
 
 You can find the **official JWT proposal (RFC7519)** here:
 https://jwt.io/, https://tools.ietf.org/html/rfc7519
+:::
+
+:::note
+
+One more distinction - a quote from [Okta](https://www.okta.com/):
+
+> **Authentication** confirms that users are who they say they are.
+> **Authorization** gives those users permission to access a resource.
+
+This backend serves both of these roles: Managing user accounts and
+issuing/validating access tokens. In order not to increase confusion
+we try to always use the term "authentication", even though there is
+a distinction between those two terms.
+
 :::
