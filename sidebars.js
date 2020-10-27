@@ -25,6 +25,7 @@ module.exports = {
             'authentication/api-keys-vs-oauth2',
             'authentication/encrypted-communication',
             'authentication/authentication-server',
+            'authentication/resource-server',
         ],
     },
 };
