@@ -4,7 +4,7 @@ module.exports = {
     url: 'https://docs.fastsurvey.io/',
     baseUrl: '/',
     favicon: 'img/icons/favicon_512.ico',
-    organizationName: 'fast-survey', // Usually your GitHub org/user name.
+    organizationName: 'fastsurvey', // Usually your GitHub org/user name.
     projectName: 'docs', // Usually your repo name.
     themeConfig: {
         colorMode: {
@@ -28,7 +28,7 @@ module.exports = {
                     position: 'left',
                 },
                 {
-                    href: 'https://github.com/fast-survey',
+                    href: 'https://github.com/fastsurvey',
                     position: 'right',
                     className: 'header-github-link',
                     'aria-label': 'GitHub repository',
@@ -102,7 +102,7 @@ module.exports = {
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
                     // Please change this to your repo.
-                    editUrl: 'https://github.com/fast-survey/docs/edit/master/',
+                    editUrl: 'https://github.com/fastsurvey/docs/edit/master/',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),

@@ -1,0 +1,48 @@
+---
+id: encrypted-communication
+title: Encrypted Communication
+description: Official FastSurvey Documentation
+image: /img/rocket_bg.png
+---
+
+It is important to make sure all communication happens over `https` and not
+`http`. All `https` traffic will be encrypted by the SSL or TLS mechanisms during
+transport. Two types of communication:
+
+-   `form-data` for **Authentication Communication** (e.g. creating an account,
+    logging in, etc.)
+
+-   The 'Authorization' `header` for **Authenticated API Communication** (i.e.
+    requests that enforce access reqstriction on the requested resource)
+
+```bash
+# form-data
+curl 'http://localhost:3000/login' -X POST \
+    -H 'Content-Type: application/json'
+    -d '{"email": "...", "password": "..."}'
+
+# header
+curl 'http://localhost:3000/private-route' \
+    -H 'Authorization: bearer <access_token>'
+```
+
+> Why do we only use `form-data` and `headers`?
+
+Both **`form-data` and `headers` are encrypted by SSL/TLS**.
+
+<br />
+
+:::caution
+
+`query parameters` or `path parameters` are not are encrypted by
+SSL/TLS and therefore not supported.
+
+```bash
+# query parameters
+curl 'http://localhost:3000/private-route?access_token=<access_token>'
+
+# path parameters
+curl 'http://localhost:3000/private-route/<access_token>'
+```
+
+:::

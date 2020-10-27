@@ -1,7 +1,6 @@
 ---
-id: introduction
-title: Authentication - Introduction
-sidebar_label: Introduction
+id: api-keys-vs-oauth2
+title: API Keys vs. OAuth2
 description: Official FastSurvey Documentation
 image: /img/rocket_bg.png
 ---
@@ -62,6 +61,8 @@ There are three benefits that we make use of:
 3.  Using public-key cryptography (asymmetric encryption)
 
 <br />
+
+## OAuth2 Implementation
 
 ### 1. Different types of credentials
 
@@ -169,6 +170,48 @@ these tokens.
 Every **resource server** can decrypt these **signed tokens** without any
 external communication required.
 
+```
+  +--------+                                           +---------------+
+  |        |--(C)--------- Login Credentials --------->| Authorization |
+  |        |                                           |     Server    |
+  |        |<-(D)----------- Access Token -------------|               |
+  |        |                                           +---------------+
+  | Client |
+  |        |                                           +---------------+
+  |        |--(E)----------- Access Token ------------>|    Resource   |
+  |        |                                           |     Server    |
+  |        |<-(F)--------- Protected Resource ---------|               |
+  +--------+                                           +---------------+
+```
+
+```
+  +--------+                                           +---------------+
+  |        |--(A)-------- Login Credentials ---------->|               |
+  |        |                                           |               |
+  |        |<-(B)----------- Access Token -------------|               |
+  |        |               & Refresh Token             |               |
+  |        |                                           |               |
+  |        |                            +----------+   |               |
+  |        |--(C)---- Access Token ---->|          |   |               |
+  |        |                            |          |   |               |
+  |        |<-(D)- Protected Resource --| Resource |   | Authorization |
+  | Client |                            |  Server  |   |     Server    |
+  |        |--(E)---- Access Token ---->|          |   |               |
+  |        |                            |          |   |               |
+  |        |<-(F)- Invalid Token Error -|          |   |               |
+  |        |                            +----------+   |               |
+  |        |                                           |               |
+  |        |--(G)----------- Refresh Token ----------->|               |
+  |        |                                           |               |
+  |        |<-(H)----------- Access Token -------------|               |
+  +--------+           & Optional Refresh Token        +---------------+
+```
+
+Got the amazing charts from the official OAuth2 proposal (RFC6749, pages 6 and 10):
+https://tools.ietf.org/html/rfc6749
+
+<br />
+
 :::note
 
 Our resource servers fetch the public key from the authentication server
@@ -207,46 +250,33 @@ any of these providers.
 
 <br />
 
-## Encrypted Communication
+## Side notes
 
-It is important to make sure all communication happens over `https` and not
-`http`. All `https` traffic will be encrypted by the SSL or TLS mechanisms during
-transport. Two types of communication:
+:::note
 
--   `form-data` for **Authentication Communication** (e.g. creating an account,
-    logging in, etc.)
+Our implementation and this documentation both are a simplified version of
+the OAuth2 proposal!
 
--   The 'Authorization' `header` for **Authenticated API Communication** (i.e.
-    requests that enforce access reqstriction on the requested resource)
+Some examples: OAuth2 distinguishes between the resource owner and the
+authorization. In addition to that OAuth2 establishes scopes which are
+different permission-levels (e.g. read-only vs. read-and-write).
 
-```bash
-# form-data
-curl 'http://localhost:3000/login' -X POST \
-    -H 'Content-Type: application/json'
-    -d '{"email": "...", "password": "..."}'
+You can find the **official OAuth2 proposal (RFC6749)** here:
+https://oauth.net/2/, https://tools.ietf.org/html/rfc6749
 
-# header
-curl 'http://localhost:3000/private-route' \
-    -H 'Authorization: bearer <access_token>'
-```
+:::
 
-> Why do we only use `form-data` and `headers`?
+:::note
 
-Both **`form-data` and `headers` are encrypted by SSL/TLS**.
+Distinguishing between **OAuth2** and **JWT's (JSON Web Tokens)**.
 
-<br />
+OAuth2 proposes the mechanism mentioned above (the pretty charts) but does
+not postulate any specific implemention of the encryption along with a
+payload.
 
-:::caution
+JWT's actually implement the symmetric or asymmetric encryption of that
+payload.
 
-`query parameters` or `path parameters` are not are encrypted by
-SSL/TLS and therefore not supported.
-
-```bash
-# query parameters
-curl 'http://localhost:3000/private-route?access_token=<access_token>'
-
-# path parameters
-curl 'http://localhost:3000/private-route/<access_token>'
-```
-
+You can find the **official JWT proposal (RFC7519)** here:
+https://jwt.io/, https://tools.ietf.org/html/rfc7519
 :::

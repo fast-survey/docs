@@ -22,7 +22,8 @@ module.exports = {
             'self-hosting/system-architecture',
         ],
         Authentication: [
-            'authentication/introduction',
+            'authentication/api-keys-vs-oauth2',
+            'authentication/encrypted-communication',
             'authentication/authentication-server',
         ],
     },
