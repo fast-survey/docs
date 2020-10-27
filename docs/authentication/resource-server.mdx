@@ -1,0 +1,134 @@
+---
+id: resource-server
+title: Resource Server
+sidebar_label: Resource Server
+description: Official FastSurvey Documentation
+image: /img/rocket_bg.png
+---
+
+<br />
+
+:::tip
+
+This is an example implementation for a
+[FastAPI](https://fastapi.tiangolo.com/) backend. However, since OAuth2 and
+JWT's are both open specifications a resource server can be implemented with
+any capable backend language and web-framework.
+
+:::
+
+<br />
+
+## Dependencies
+
+In order to decrypt the access- and refresh-tokens we can use one of the
+JWT libraries listed on [jwt.io](https://jwt.io/). We use `PyJWT` with
+`cryptography` as the "cryptographic backend":
+
+```bash
+pip install "PyJWT[cryptography]"
+# or
+poetry add "PyJWT[cryptography]"
+```
+
+In our backend we use `fastapi` and `httpx`:
+
+```bash
+pip install fastapi httpx certifi
+# or
+poetry add fastapi httpx certifi
+```
+
+<br />
+
+## Get the public key
+
+Fetch the public key when starting the application.
+
+```python
+from fastapi import FastAPI
+import httpx
+
+app = FastAPI()
+
+# Set correct SSL certificate
+os.environ['SSL_CERT_FILE'] = certifi.where()
+
+AUTH_BACKEND_URL = os.getenv("AUTH_BACKEND_URL")
+assert AUTH_BACKEND_URL is not None
+
+auth_response = httpx.get(f'{AUTH_BACKEND_URL}/')
+assert auth_response.status_code == 200
+
+json_response = auth_response.json()
+assert "public_key" in json_response
+assert "jwt_algorithm" in json_response
+
+PUBLIC_KEY = json_response["public_key"]
+JWT_ALGORITHM = json_response["jwt_algorithm"]
+```
+
+<br />
+
+## Decrypt the token
+
+The public key can be fetched from the associated authentication server.
+
+```python
+import jwt  # i.e. PyJWT
+from datetime import datetime
+from fastapi import HTTPException, status
+
+def check_jwt(token):
+    try:
+        payload = jwt.decode(
+            token, PUBLIC_KEY,
+            algorithms=[JWT_ALGORITHM]
+        )
+        assert "exp" in payload
+    except Exception:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Could not validate credentials"
+        )
+
+    if payload["exp"] < datetime.timestamp(datetime.utcnow()):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token expired"
+        )
+    return payload
+```
+
+<br />
+
+## Protected routes with FastAPI
+
+Following the OAuth2.0 schema the token has to be passed as a header with
+every protected route:
+
+```bash
+curl ... \
+    -H "Authorization": "bearer <access_token>"
+```
+
+When using FastAPI you can just use the built-in easification:
+
+```python
+from fastapi.security import OAuth2PasswordBearer
+
+app = FastAPI()
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+
+...
+
+@app.get("/account")
+async def account_route(
+    access_token: str = Depends(oauth2_scheme)
+):
+    payload = check_jwt(access_token)  # Raises exception if access_token invalid
+
+    # Code only reachable if access_token is valid
+    ...
+```

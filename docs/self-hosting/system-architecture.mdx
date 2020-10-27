@@ -6,9 +6,16 @@ description: Official FastSurvey Documentation
 image: /img/rocket_bg.png
 ---
 
-export function Flexbox (props) {
+export function Flexbox(props) {
     return (
-        <div style={{width: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <div
+            style={{
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
+        >
             {props.children}
         </div>
     );
@@ -20,11 +27,13 @@ We use the **Google Cloud Platform** for most of our infrastructure, **MongoDB A
 for data storage, and **SendGrid** for sending emails.
 
 <Flexbox>
-    <img src="/img/docs/system-architecture-01.png"
-    style={{width: "min(100%, 650px)"}}/>
+    <img
+        src='/img/docs/system-architecture-01.png'
+        style={{ width: 'min(100%, 650px)' }}
+    />
 </Flexbox>
 
-<br/>
+<br />
 
 You can use every FastSurvey feature by interacting with the backend directly. You will
 find a full API reference on here soon. The frontend uses those same endpoints specified
@@ -44,8 +53,10 @@ of the username of the owner account and the survey-name: `survey-identifier` =
 You can name the survey how you like but we will generate a url-conform identifier.
 
 <Flexbox>
-    <img src="/img/docs/system-architecture-02.gif"
-    style={{width: "min(100%, 650px)"}}/>
+    <img
+        src='/img/docs/system-architecture-02.gif'
+        style={{ width: 'min(100%, 650px)' }}
+    />
 </Flexbox>
 
 ## Survey Storage
