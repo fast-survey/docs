@@ -6,6 +6,7 @@ module.exports = {
     favicon: 'img/icons/favicon_512.ico',
     organizationName: 'fastsurvey', // Usually your GitHub org/user name.
     projectName: 'docs', // Usually your repo name.
+    onBrokenLinks: 'ignore',
     themeConfig: {
         colorMode: {
             disableSwitch: true,
