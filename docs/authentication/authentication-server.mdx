@@ -1,0 +1,104 @@
+---
+id: authentication-server
+title: Authentication Server
+sidebar_label: Authentication Server
+description: Official FastSurvey Documentation
+image: /img/rocket_bg.png
+---
+
+<br />
+
+:::tip
+
+You can get the full API reference - when running the server - from:
+
+```bash
+GET "/docs"
+```
+
+:::
+
+---
+
+The `public_key` will be published via the index route:
+
+```bash
+GET "/"
+```
+
+```json
+{
+    "status": "healthy",
+    "mode": "production",
+    "public_key": "ssh-rsa ..."
+}
+```
+
+<br />
+
+## Login
+
+:::note
+
+All of these routes will respond with a status code `200` in case the
+credentials provided are valid. Otherwise the status code is `401`
+(unauthorized).
+
+:::
+
+---
+
+Login with **`email` and `password`**:
+
+```bash
+POST "/login/form"
+# email and password as form-data
+```
+
+```json
+{
+    "oauth2_token": {
+        "access_token": ...,
+        "refresh_token": ...,
+        "token_type": "bearer"
+    },
+    "account": ...
+}
+```
+
+---
+
+Login with **`access_token`**:
+
+```bash
+POST "/login/access"
+# access_token as form-data
+```
+
+```json
+{
+    "account": ...
+}
+```
+
+_No new `oauth2_token` necessary since the `access_token` is still valid._
+
+---
+
+Login with **`refresh_token`**:
+
+```bash
+POST "/login/refresh"
+# refresh_token as form-data
+```
+
+```json
+{
+    "oauth2_token": {
+        "access_token": ...,
+        "refresh_token": ...,
+        "token_type": "bearer"
+    },
+    "account": ...
+}
+```

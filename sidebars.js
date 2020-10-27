@@ -21,6 +21,9 @@ module.exports = {
             'self-hosting/introduction',
             'self-hosting/system-architecture',
         ],
-        Authentication: ['authentication/introduction'],
+        Authentication: [
+            'authentication/introduction',
+            'authentication/authentication-server',
+        ],
     },
 };
