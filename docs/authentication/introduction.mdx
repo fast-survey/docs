@@ -1,0 +1,89 @@
+---
+id: introduction
+title: Authentication - Introduction
+sidebar_label: Introduction
+description: Official FastSurvey Documentation
+image: /img/rocket_bg.png
+---
+
+## Types of Authentication
+
+### `API Keys`
+
+Using **`API keys`** used to be a very common way of
+authentication a client with an API. Once you log in
+with valid credentials (e.g. email/username and
+password) an random sequence of characters will be
+generated. This is the `API key`.
+
+-   The `API key` has to be stored in a database and is
+    associated with that specific client via the database entry
+-   It will be passed to the client that requests authentication
+
+_Usage: The client just to passes this `API key` along with every API request._
+
+Disadvantages:
+
+-   There has to be an extra database/collection for these `API keys`
+-   On every single request there has to be some database communication only
+    for validating the `API key`
+-   Generating a new `API key` generally requires the account credentials
+    (e.g. email/username and password)
+
+<br />
+
+### `OAuth2 Tokens`
+
+However this authentication provider uses another mechanism called **`OAuth2`**.
+
+:::note
+
+There are many reasons why this authentication mechanism is a good choice.
+We will only cover a few advantages over using `API keys` but you can read the
+full specification here: https://oauth.net/2/
+
+:::
+
+<br />
+
+## Encrypted Communication
+
+It is important to make sure all communication happens over `https` and not
+`http`. All `https` traffic will be encrypted by the SSL or TLS mechanisms during
+transport. Two types of communication:
+
+-   `form-data` for **Authentication Communication** (e.g. creating an account,
+    logging in, etc.)
+
+-   The 'Authorization' `header` for **Authenticated API Communication** (i.e.
+    requests that enforce access reqstriction on the requested resource)
+
+```bash
+# form-data
+curl 'http://localhost:3000/login' -X POST \
+    -H 'Content-Type: application/json'
+    -d '{"email": "...", "password": "..."}'
+
+# header
+curl 'http://localhost:3000/private-route' \
+    -H 'Authorization: bearer <access_token>'
+```
+
+Both **`form-data` and `headers` are encrypted by SSL/TLS**.
+
+<br />
+
+:::caution
+
+`query parameters` or `path parameters` are not are encrypted by
+SSL/TLS and therefore not supported.
+
+```bash
+# query parameters
+curl 'http://localhost:3000/private-route?access_token=<access_token>'
+
+# path parameters
+curl 'http://localhost:3000/private-route/<access_token>'
+```
+
+:::
