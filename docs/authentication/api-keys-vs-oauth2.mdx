@@ -29,10 +29,11 @@ Using **API keys** used to be a very common way of authentication a client
 with an API. Once you log in with valid credentials (e.g. email/username and
 password) a random sequence of characters will be generated.
 
-This API key has to be stored in a database and is associated with that
-specific account via the database entry. It will be passed to the client as
-a response to the login-request. The client just to passes this API key
-along with every API request. Some significant drawbacks of using API keys:
+This API key has to be stored in a database and is associated with a
+specific account via that database entry. It will be passed back to the
+client as a response to the login-request. The client just passes this
+API key along with every API request of a protected resource. Some 
+significant drawbacks of using API keys:
 
 -   There has to be an extra database/table/collection for these API keys
 -   On every single request there has to be some database communication only
@@ -56,7 +57,7 @@ full specification here: https://oauth.net/2/
 
 There are three benefits that we make use of:
 
-1.  Using Different types of credentials
+1.  Using different types of tokens
 2.  Storing the account info within the token itself
 3.  Using public-key cryptography (asymmetric encryption)
 
@@ -132,6 +133,7 @@ If one were to use `API keys` for that, there are two possibilities:
 
 1. On every request a resource server has to reach out to the authentication
    server that has to tell the resource server whether the `API key` is valid
+   or not
 2. Every resource has to be able to read from the `API key` database
 
 > Ahh, and with OAuth2 there is no need for a key-database but you only need
@@ -144,8 +146,6 @@ requests the authentication server has to handle.
 
 There is still one problem when using **symmetric encryption**: The
 encryption/decryption key has to be shared accross all resource servers.
-And when that key changes, it has to happen on all servers at the exact
-same moment.
 
 The solution to that is **asymmetric encryption**. There is one **private key**
 that can be used to encrypt messages. Only the authentication server knows this
@@ -183,6 +183,11 @@ external communication required.
   |        |<-(F)--------- Protected Resource ---------|                |
   +--------+                                           +---------------+
 ```
+
+The **`access_token`** is used to authenticate API requests on protected 
+resources.
+
+The **`refresh_token`** is used to obtain a new `access_token`.
 
 ```
   +--------+                                           +---------------+
@@ -239,12 +244,12 @@ Some examples of these **"Authentication Providers"** are:
     />
 </Flexbox>
 
-They also are responsible for managing accounts and signing tokens which can
-be again verified using their public key.
+They are responsible for managing accounts and signing tokens which can be
+again verified using their public key.
 
 There are many benefits and drawbacks when using these providers. But since
 we strongly focus on the protection of our users data we decided to not use
-any of these providers.
+any of these providers. 
 
 :::
 
@@ -258,7 +263,7 @@ Our implementation and this documentation both are a simplified version of
 the OAuth2 proposal!
 
 Some examples: OAuth2 distinguishes between the resource owner and the
-authorization server. In addition to that OAuth2 establishes scopes which
+authorization server. In addition to that, OAuth2 establishes scopes which
 are different permission-levels (e.g. read-only vs. read-and-write).
 
 You can find the **official OAuth2 proposal (RFC6749)** here:
@@ -270,12 +275,12 @@ https://oauth.net/2/, https://tools.ietf.org/html/rfc6749
 
 Distinguishing between **OAuth2** and **JWT's (JSON Web Tokens)**.
 
-OAuth2 proposes the mechanism mentioned above (the pretty charts) but does
+OAuth2 proposes the mechanisms mentioned above (the pretty charts) but does
 not postulate any specific implemention of the encryption along with a
 payload.
 
-JWT's actually implement the symmetric or asymmetric encryption of that
-payload.
+JWT's are one of the possible implementations of the symmetric or asymmetric 
+encryption of that payload.
 
 You can find the **official JWT proposal (RFC7519)** here:
 https://jwt.io/, https://tools.ietf.org/html/rfc7519
