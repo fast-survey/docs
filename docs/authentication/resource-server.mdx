@@ -127,7 +127,8 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 async def account_route(
     access_token: str = Depends(oauth2_scheme)
 ):
-    payload = check_jwt(access_token)  # Raises exception if access_token invalid
+    # check_jwt raises 401 if access_token is invalid/expired
+    payload = check_jwt(access_token)
 
     # Code only reachable if access_token is valid
     ...
