@@ -17,10 +17,12 @@ Here you can see a very simple survey that asks your survey participants to desc
     "description": "",
     "start": 1000000000,
     "end": 2000000000,
-    "mode": 0,
+    "draft": false,
+    "authentication": "open",
+    "limit": 0,
     "fields": [
         {
-            "type": "Text",
+            "type": "text",
             "title": "Why do you like ice cream?",
             "description": "",
             "min_chars": 10,
@@ -38,8 +40,10 @@ Each survey configuration has the same top level properties:
 - `description`: here you can put a short description or introduction of the survey
 - `start`: the time the survey is opened as unix timestamp (inclusive)
 - `end`: the time the survey is closed as unix timestamp (exclusive)
-- `mode`: a number representing one of the three types of surveys you can build
-    - `0`: a free for all survey, everyone who has the link can submit (even multiple times)
-    - `1`: a survey where the user submits her email address during the survey and we verify that the email is valid via a confirmation email (only the users most recent submission counts)
-    - `2`: a survey where you provide us with a list of email addresses, we send out personalized invitations, and ensure that only the persons that you specified can submit (only the users most recent submission counts)
+- `draft`: if the survey is only a draft
+- `authentication`: the submission authentication type of the survey
+    - `open`: a free for all survey, everyone who has the link can submit (even multiple times)
+    - `email`: a survey where the user submits her email address during the survey and we verify that the email is valid via a confirmation email (only the user's most recent submission counts)
+    - `invitation`: a survey where you provide us with a list of email addresses, we send out personalized invitations, and ensure that only the persons that you specified can submit (only the user's most recent submission counts)
+- `limit`: an optional submission count limit in order to keep costs in check; 0 for no limit
 - `fields`: a list of the questions that the survey entails, see Field Types
