@@ -11,7 +11,7 @@ The Option field provides a simple yes/no choice. It can be used on its own or a
 
 - `title`: the title of the question
 - `description`: a short optional description containing more details
-- `mandatory`: true if the field is mandatory to be selected, false otherwise
+- `required`: true if the field has to be selected, false otherwise
 
 ## Example JSON Specification:
 
@@ -31,7 +31,7 @@ The Option field provides a simple yes/no choice. It can be used on its own or a
             "type": "option",
             "title": "I have read and agree to the terms and conditions",
             "description": "",
-            "mandatory": true
+            "required": true
         }
     ]
 }
