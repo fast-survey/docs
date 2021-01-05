@@ -5,9 +5,9 @@ module.exports = {
             'general/nomenclature',
             'general/about-us',
         ],
-        'Admin Guide': [
-            'admin-guide/admin-dashboard',
-            'admin-guide/json-configuration-files',
+        'User Guide': [
+            'user-guide/admin-dashboard',
+            'user-guide/json-configuration-files',
         ],
         'Field Types': [
             'field-types/email',
