@@ -44,6 +44,6 @@ Each survey configuration has the same top level properties:
 - `authentication`: the submission authentication type of the survey
     - `open`: a free for all survey, everyone who has the link can submit (even multiple times)
     - `email`: a survey where the user submits her email address during the survey and we verify that the email is valid via a confirmation email (only the user's most recent submission counts)
-    - `invitation`: a survey where you provide us with a list of email addresses, we send out personalized invitations, and ensure that only the persons that you specified can submit (only the user's most recent submission counts)
+    - `invitation`: a survey where you provide us with a list of email addresses, we send out personalized invitations, and ensure that only the persons that you specified can submit (only the user's most recent submission counts; submission **and** verification need to happen before the end date, so that results of the survey are fixed with the end date)
 - `limit`: an optional submission count limit in order to keep costs in check; 0 for no limit
 - `fields`: a list of the questions that the survey entails, see Field Types

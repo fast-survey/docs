@@ -5,7 +5,6 @@ module.exports = {
             'general/nomenclature',
             'general/about-us',
         ],
-        'User Guide': ['user-guide/email-verification'],
         'Admin Guide': [
             'admin-guide/admin-dashboard',
             'admin-guide/json-configuration-files',
@@ -20,12 +19,6 @@ module.exports = {
         'Self Hosting': [
             'self-hosting/introduction',
             'self-hosting/system-architecture',
-        ],
-        Authentication: [
-            'authentication/api-keys-vs-oauth2',
-            'authentication/encrypted-communication',
-            'authentication/authentication-server',
-            'authentication/resource-server',
         ],
     },
 };
