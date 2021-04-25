@@ -11,9 +11,8 @@ Here you can see a very simple survey that asks your survey participants to desc
 
 ```json
 {
-    "admin_name": "fastsurvey",
-    "survey_name": "text",
-    "title": "Text Test",
+    "survey_name": "option",
+    "title": "Option Test",
     "description": "",
     "start": 1000000000,
     "end": 2000000000,
@@ -22,11 +21,10 @@ Here you can see a very simple survey that asks your survey participants to desc
     "limit": 0,
     "fields": [
         {
-            "type": "text",
-            "title": "Why do you like ice cream?",
+            "type": "option",
+            "title": "I have read and agree to the terms and conditions",
             "description": "",
-            "min_chars": 10,
-            "max_chars": 1000
+            "required": true
         }
     ]
 }
@@ -34,7 +32,6 @@ Here you can see a very simple survey that asks your survey participants to desc
 
 Each survey configuration has the same top level properties:
 
-- `admin_name`: the username of the person that created the survey
 - `survey_name`: the name of the survey
 - `title`: the (more detailed and readable) title of the survey
 - `description`: here you can put a short description or introduction of the survey
