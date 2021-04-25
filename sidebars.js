@@ -8,6 +8,7 @@ module.exports = {
         'User Guide': [
             'user-guide/console',
             'user-guide/json-configuration-files',
+            'user-guide/config-validation',
         ],
         'Field Types': [
             'field-types/email',
