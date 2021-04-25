@@ -6,7 +6,7 @@ module.exports = {
             'general/about-us',
         ],
         'User Guide': [
-            'user-guide/admin-dashboard',
+            'user-guide/console',
             'user-guide/json-configuration-files',
         ],
         'Field Types': [
