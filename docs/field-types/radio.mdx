@@ -13,6 +13,12 @@ The Radio field provides choice between multiple Options. For the input to be va
 - `description`: a short optional description containing more details
 - `fields`: list of Option fields
 
+## Rules
+
+- `title [string]`: `1 <= title.length <= 128`
+- `description [string]`: `0 <= description.length <= 4096`
+- `fields [list]`: `2 <= fields.length <= 128`
+
 ## Example JSON Specification:
 
 ```json
@@ -20,8 +26,8 @@ The Radio field provides choice between multiple Options. For the input to be va
     "survey_name": "radio",
     "title": "Radio Test",
     "description": "",
-    "start": 1000000000,
-    "end": 2000000000,
+    "start": 0,
+    "end": 4102444800,
     "draft": false,
     "authentication": "open",
     "limit": 0,

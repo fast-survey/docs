@@ -14,6 +14,13 @@ With the Email field you can obtain the email address of the user. We will verif
 - `regex`: the regex by which valid email addresses are constrained
 - `hint`: a textual hint e.g. how a valid email address could look like
 
+## Rules
+
+- `title [string]`: `1 <= title.length <= 128`
+- `description [string]`: `0 <= description.length <= 4096`
+- `regex [string]`: valid format and `regex.length <= 1024`
+- `hint [string]`: `0 <= hint.length <= 128`
+
 ## Example JSON Specification:
 
 ```json
@@ -21,8 +28,8 @@ With the Email field you can obtain the email address of the user. We will verif
     "survey_name": "email",
     "title": "Email Test",
     "description": "",
-    "start": 1000000000,
-    "end": 2000000000,
+    "start": 0,
+    "end": 4102444800,
     "draft": false,
     "authentication": "open",
     "limit": 0,
@@ -42,6 +49,6 @@ With the Email field you can obtain the email address of the user. We will verif
 
 ```json
 {
-    "1": "noreply@fastsurvey.io"
+    "1": "support@fastsurvey.io"
 }
 ```
