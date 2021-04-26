@@ -16,10 +16,10 @@ With the Email field you can obtain the email address of the user. We will verif
 
 ## Rules
 
-- `title [string]`: `1 <= title.length <= 120`
-- `description [string]`: `0 <= description.length <= 10000`
-- `regex [string]`: valid format and `regex.length <= 1000`
-- `hint [string]`: `0 <= hint.length <= 120`
+- `title [string]`: `1 <= title.length <= 128`
+- `description [string]`: `0 <= description.length <= 4096`
+- `regex [string]`: valid format and `regex.length <= 1024`
+- `hint [string]`: `0 <= hint.length <= 128`
 
 ## Example JSON Specification:
 
@@ -28,8 +28,8 @@ With the Email field you can obtain the email address of the user. We will verif
     "survey_name": "email",
     "title": "Email Test",
     "description": "",
-    "start": 1000000000,
-    "end": 2000000000,
+    "start": 0,
+    "end": 4102444800,
     "draft": false,
     "authentication": "open",
     "limit": 0,

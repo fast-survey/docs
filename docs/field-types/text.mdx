@@ -16,10 +16,10 @@ With the Text field you can obtain free text input.
 
 ## Rules
 
-- `title [string]`: `1 <= title.length <= 120`
-- `description [string]`: `0 <= description.length <= 10000`
+- `title [string]`: `1 <= title.length <= 128`
+- `description [string]`: `0 <= description.length <= 4096`
 - `min_chars [integer]`: `0 <= min_chars <= max_chars`
-- `max_chars [integer]`: `min_chars <= max_chars <= 10000`
+- `max_chars [integer]`: `min_chars <= max_chars <= 4096`
 
 ## Example JSON Specification:
 
@@ -28,8 +28,8 @@ With the Text field you can obtain free text input.
     "survey_name": "text",
     "title": "Text Test",
     "description": "",
-    "start": 1000000000,
-    "end": 2000000000,
+    "start": 0,
+    "end": 4102444800,
     "draft": false,
     "authentication": "open",
     "limit": 0,

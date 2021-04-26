@@ -17,11 +17,11 @@ The Selection field provides choice between multiple Options. You can specify th
 
 ## Rules
 
-- `title [string]`: `1 <= title.length <= 120`
-- `description [string]`: `0 <= description.length <= 10000`
+- `title [string]`: `1 <= title.length <= 128`
+- `description [string]`: `0 <= description.length <= 4096`
 - `min_select [integer]`: `0 <= min_select <= max_select`
 - `max_select [integer]`: `min_select <= max_select <= fields.length`
-- `fields [list]`: `2 <= fields.length <= 100`
+- `fields [list]`: `2 <= fields.length <= 128`
 
 ## Example JSON Specification:
 
@@ -30,8 +30,8 @@ The Selection field provides choice between multiple Options. You can specify th
     "survey_name": "selection",
     "title": "Selection Test",
     "description": "",
-    "start": 1000000000,
-    "end": 2000000000,
+    "start": 0,
+    "end": 4102444800,
     "draft": false,
     "authentication": "open",
     "limit": 0,
