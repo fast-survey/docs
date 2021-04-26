@@ -11,8 +11,15 @@ With the Text field you can obtain free text input.
 
 - `title`: the title of the question
 - `description`: a short optional description containing more details
-- `min_chars`: the minimum number of characters to be written (inclusive); has to be > 0
-- `max_chars`: the maximum number of characters to be written (inclusive): has to be > 0 and >= min_chars
+- `min_chars`: the minimum number of characters to be written (inclusive)
+- `max_chars`: the maximum number of characters to be written (inclusive)
+
+## Rules
+
+- `title [string]`: `1 <= title.length <= 120`
+- `description [string]`: `0 <= description.length <= 10000`
+- `min_chars [integer]`: `0 <= min_chars <= max_chars`
+- `max_chars [integer]`: `min_chars <= max_chars <= 10000`
 
 ## Example JSON Specification:
 

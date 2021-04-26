@@ -11,8 +11,8 @@ Here you can see a very simple survey that asks your survey participants to desc
 
 ```json
 {
-    "survey_name": "option",
-    "title": "Option Test",
+    "survey_name": "text",
+    "title": "Text Test",
     "description": "",
     "start": 1000000000,
     "end": 2000000000,
@@ -21,10 +21,11 @@ Here you can see a very simple survey that asks your survey participants to desc
     "limit": 0,
     "fields": [
         {
-            "type": "option",
-            "title": "I have read and agree to the terms and conditions",
+            "type": "text",
+            "title": "Why do you like ice cream?",
             "description": "",
-            "required": true
+            "min_chars": 10,
+            "max_chars": 1000
         }
     ]
 }
@@ -35,12 +36,24 @@ Each survey configuration has the same top level properties:
 - `survey_name`: the name of the survey
 - `title`: the (more detailed and readable) title of the survey
 - `description`: here you can put a short description or introduction of the survey
-- `start`: the time the survey is opened as unix timestamp (inclusive)
-- `end`: the time the survey is closed as unix timestamp (exclusive)
-- `draft`: if the survey is only a draft
+- `start`: the time the survey is opened as unix timestamp
+- `end`: the time the survey is closed as unix timestamp
+- `draft`: if the survey is a draft, meaning that it's not (yet?) public
 - `authentication`: the submission authentication type of the survey
     - `open`: a free for all survey, everyone who has the link can submit (even multiple times)
     - `email`: a survey where the user submits her email address during the survey and we verify that the email is valid via a confirmation email (only the user's most recent submission counts)
     - `invitation`: a survey where you provide us with a list of email addresses, we send out personalized invitations, and ensure that only the persons that you specified can submit (only the user's most recent submission counts; submission **and** verification need to happen before the end date, so that results of the survey are fixed with the end date)
 - `limit`: an optional submission count limit in order to keep costs in check; 0 for no limit
 - `fields`: a list of the questions that the survey entails, see Field Types
+
+The exact rules for the configuration parameters are as follows:
+
+- `survey_name [string]`: `^[a-z0-9-]{2,20}$`, must be unique for the user
+- `title [string]`: `1 <= title.length <= 120`
+- `description [string]`: `0 <= description.length <= 10000`
+- `start [integer]`: `0 <= start <= end`
+- `end [integer]`: `start <= end`
+- `draft [boolean]`
+- `authentication [string]`: one of `[open, email, invitation]`
+- `limit[integer]`: `0 <= limit`, when no payment info is provided, surveys are automatically capped at 100 submissions
+- `fields [list]`: `1 <= fields.length <= 100`, if `authentication == email` this must include exactly one email field, otherwise no email field at all

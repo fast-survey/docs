@@ -13,6 +13,12 @@ The Option field provides a simple yes/no choice. It can be used on its own or a
 - `description`: a short optional description containing more details
 - `required`: true if the field has to be selected, false otherwise
 
+## Rules
+
+- `title [string]`: `1 <= title.length <= 120`
+- `description [string]`: `0 <= description.length <= 10000`
+- `required [boolean]`
+
 ## Example JSON Specification:
 
 ```json

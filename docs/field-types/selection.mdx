@@ -15,6 +15,14 @@ The Selection field provides choice between multiple Options. You can specify th
 - `max_select`: the maximum number of Options to be selected (inclusive)
 - `fields`: list of Option fields
 
+## Rules
+
+- `title [string]`: `1 <= title.length <= 120`
+- `description [string]`: `0 <= description.length <= 10000`
+- `min_select [integer]`: `0 <= min_select <= max_select`
+- `max_select [integer]`: `min_select <= max_select <= fields.length`
+- `fields [list]`: `2 <= fields.length <= 100`
+
 ## Example JSON Specification:
 
 ```json

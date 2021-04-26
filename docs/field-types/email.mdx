@@ -17,9 +17,9 @@ With the Email field you can obtain the email address of the user. We will verif
 ## Rules
 
 - `title [string]`: `1 <= title.length <= 120`
-- `description [string]`: `0 <= description.length <= 2000`
+- `description [string]`: `0 <= description.length <= 10000`
 - `regex [string]`: valid format and `regex.length <= 1000`
-- `hint [string]`: `hint.length <= 120`
+- `hint [string]`: `0 <= hint.length <= 120`
 
 ## Example JSON Specification:
 
@@ -49,6 +49,6 @@ With the Email field you can obtain the email address of the user. We will verif
 
 ```json
 {
-    "1": "noreply@fastsurvey.io"
+    "1": "support@fastsurvey.io"
 }
 ```
