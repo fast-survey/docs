@@ -3,4 +3,4 @@
 
 - made with [Docusaurus v2](https://v2.docusaurus.io/).
 - install dependencies via `yarn install`
-- run locally via `yarn start`
+- run locally via `yarn develop`
