@@ -14,6 +14,13 @@ With the Email field you can obtain the email address of the user. We will verif
 - `regex`: the regex by which valid email addresses are constrained
 - `hint`: a textual hint e.g. how a valid email address could look like
 
+## Rules
+
+- `title [string]`: `1 <= title.length <= 120`
+- `description [string]`: `0 <= description.length <= 2000`
+- `regex [string]`: valid format and `regex.length <= 1000`
+- `hint [string]`: `hint.length <= 120`
+
 ## Example JSON Specification:
 
 ```json
