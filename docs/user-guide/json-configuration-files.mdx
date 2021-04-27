@@ -41,9 +41,8 @@ Each survey configuration has the same top level properties:
 - `draft`: if the survey is a draft, meaning that it's not (yet?) public
 - `authentication`: the submission authentication type of the survey
     - `open`: a free for all survey, everyone who has the link can submit (even multiple times)
-    - `email`: a survey where the user submits her email address during the survey and we verify that the email is valid via a confirmation email (only the user's most recent submission counts)
-    - `invitation`: a survey where you provide us with a list of email addresses, we send out personalized invitations, and ensure that only the persons that you specified can submit (only the user's most recent submission counts; submission **and** verification need to happen before the end date, so that results of the survey are fixed with the end date)
-- `limit`: an optional submission count limit in order to keep costs in check; 0 for no limit
+    - `email`: a survey where the user submits their email address during the survey and we verify that the email is valid via a confirmation email (only the user's most recent submission counts)
+- `limit`: an optional submission count limit in order to keep costs in check; 0 for the maximum limit of 65536 (for now, later this will mean no limit at all); when no payment info is provided 0 means a limit of 100 submissions
 - `fields`: a list of the questions that the survey entails, see Field Types
 
 The exact rules for the configuration parameters are as follows:
@@ -54,6 +53,6 @@ The exact rules for the configuration parameters are as follows:
 - `start [integer]`: `0 <= start <= end`
 - `end [integer]`: `start <= end <= 4102444800`
 - `draft [boolean]`
-- `authentication [string]`: one of `[open, email, invitation]`
+- `authentication [string]`: one of `[open, email]`
 - `limit[integer]`: `0 <= limit <= 65536`, when payment info is provided otherwise `0 <= limit <= 100` (free tier)
 - `fields [list]`: `1 <= fields.length <= 128`, if `authentication == email` this must include exactly one email field, otherwise no email field at all
